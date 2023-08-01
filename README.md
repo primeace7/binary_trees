@@ -10,6 +10,6 @@ The covered concepts include:
 For visualization purposes, this project uses [this print function](https://github.com/alx-tools/0x1C.c) to print
 binary trees in an easily understandable way.
 
-##AUTHORS
-[Emmanuella Chukwuma](https://github.com/ch3lla)
-[Osaruonamen Jeffery](https://github.com/primeace7)
+## AUTHORS
+- [Emmanuella Chukwuma](https://github.com/ch3lla)
+- [Osaruonamen Jeffery](https://github.com/primeace7)
