@@ -8,51 +8,13 @@
 
 size_t binary_tree_height(const binary_tree_t *tree)
 {
-	binary_tree_t *use_tree;
-	size_t max_height, current_height;
+	size_t left_tree, right_tree;
 
-	use_tree = (binary_tree_t *)tree;
+	if (tree == NULL || (tree->left == NULL && tree->right == NULL))
+	    return (0);
 
-	max_height = 0;
-	current_height = 0;
+	left_tree = binary_tree_height(tree->left);
+	right_tree = binary_tree_height(tree->right);
 
-	traverse_tree(use_tree, &max_height, &current_height);
-	return (max_height);
-}
-
-/**
- * traverse_tree - traverse every path in a tree
- * @tree: pointer to the tree to traverse
- * @max_height: the maximum height of paths traversed in the tree so far
- * @current: the height of the current path being traversed
- * Return: nothing (void)
- */
-
-void traverse_tree(binary_tree_t *tree, size_t *max_height, size_t *current)
-{
-	if (tree == NULL)
-	{
-		(*current)--;
-		return;
-	}
-
-/* for every node that isn't null, increase the height of that path by 1 */
-/* that means a tree with only one node (i.e height 0) will have a */
-/* current height of 1, but this will be corrected in the next line of code */
-
-	(*current_height)++;
-
-/* if a node is found to be a leaf node, subtract 2 to account for the 1 that*/
-/* added in the previous line, and the 1 that was added in the root node */
-
-	if (tree->left == NULL && tree->right == NULL)
-	{
-		(*current_height) -= 2;
-		return; }
-
-	if (*current_height > *max_height)
-		*max_height = *current_height;
-
-	traverse_tree(tree->left, max_height, current_height);
-	traverse_tree(tree->right, max_height, current_height);
+	return ((left_tree > right_tree ? left_tree : right_tree) + 1);
 }
